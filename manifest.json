@@ -1,6 +1,6 @@
 {
     "name": "9GAG Toolkit",
-    "version": "0.1",
+    "version": "0.2",
     "manifest_version": 2,
     "description": "Offers advanced navigation options and improvements for the 9gag website.",
     "browser_action": {
