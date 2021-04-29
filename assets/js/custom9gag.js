@@ -5,12 +5,13 @@ console.log('9GAG Tooltiket active');
 $('head').append('<link rel="preconnect" href="https://fonts.gstatic.com">');
 $('head').append('<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet"></link>');
 
-//Teheme dark active
+//Theme dark active
 $('body').addClass('theme-dark');
 
 $('#sidebar').remove();
 
 $(function() {
+    $('body').append('<div id="profileimg"><div class="loader"></div></div>');
     scrollFunction();
     $('.nav-wrap .menu').click();
 });
@@ -122,3 +123,25 @@ $('#page').on('click', '#navigate .down', function() {
         alignActivePost('down');
     });
 });
+
+// Profil picture big view
+$('body').on('mouseover', '.avatar__container img', function() {
+    var thisPicture = $(this).attr('src');
+    var bigPicture = thisPicture.replace('_100_', '_800_');
+    var container = $('body').find('> #profileimg');
+
+    container.empty().append('<div class="loader"></div>');
+    setTimeout(function() {
+        container.empty().append('<img class="userbigimg" src="' + bigPicture + '" />');
+    }, 250);
+
+    container.css({
+        left: $(this).offset().left + 50,
+        top: $(this).offset().top - $(window).scrollTop() - 20
+    });
+
+    container.fadeIn();
+}).on('mouseout', function() {
+    var container = $('body').find('> #profileimg');
+    container.fadeOut();
+})

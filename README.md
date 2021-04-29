@@ -10,6 +10,7 @@ Offers advanced navigation options and improvements for the 9gag.com website.
  - Makes video controls visible
  - Changes the font
  - Adds keys for fast navigation in the right area
+ - Profile picture viewer
 
 # Road Map
 
