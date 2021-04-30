@@ -134,6 +134,7 @@ section#list-view-2 .post-container {
     height: calc(100% - 100px);
     overflow: auto;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
@@ -162,7 +163,7 @@ section#list-view-2 .post-section {
     margin: 0!important;
 }
 
-section#list-view-2 .post-container a {
+section#list-view-2 .post-container a, section#list-view-2 .post-container div.badge-track {
     display: block;
     width: auto!important;
     height: auto!important;
@@ -310,7 +311,7 @@ article.viewscreen {
 }
 
 
-/* Right menu */
+/* Left menu */
 
 #container>.drawer:first-child {
     width: 56px!important;
@@ -369,6 +370,60 @@ article.viewscreen {
     display: block!important;
 }
 
+/* Volume icon */
+
+.icon-volume {
+    width: 0;
+    height: 0;
+    border: 7px solid;
+    border-left: none;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    padding: 6px 3px;
+    box-shadow: inset 4px 0;
+    margin: 0 0 0 -8px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.icon-volume.open::before {
+    content: "";
+    border-style: double;
+    border-width: 6px;
+    left: -2px;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    border-radius: 50%;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.icon-volume.mute::before,
+.icon-volume.mute::after {
+    content: "";
+    transform: translateY(-50%) rotate(45deg);
+    position: absolute;
+    top: 50%;
+    box-shadow: inset 0 0 0 32px;
+}
+
+.icon-volume.mute::before {
+    width: 10px;
+    height: 2px;
+    left: 17px;
+}
+
+.icon-volume.mute::after {
+    height: 10px;
+    width: 2px;
+    left: 21px;
+}
 
 /* Post detail page */
 
@@ -440,6 +495,7 @@ article.post-page .post-container a {
 }
 
 #navigate>div {
+    position: relative;
     line-height: 60px;
     font-size: 20px;
     background-color: rgba(255, 255, 255, 0.2);
@@ -457,10 +513,18 @@ article.post-page .post-container a {
     box-shadow: 0 0 5px rgb(0 0 0 / 50%);
 }
 
-#navigate>div.up {
+#navigate>div:not(:last-child) {
     margin-bottom: 10px;
 }
 
+.video-post span.play, .youtube-post span.play{
+    display: none;
+}
+
+.fixed-wrap-post-bar {
+    width: 100%!important;
+    position: sticky!important;
+}
 
 /* Profile picture viewer */
 
@@ -472,16 +536,6 @@ article.post-page .post-container a {
     min-height: 200px;
     min-width: 200px;
 }
-
-/* #profileimg::before {
-    content: "";
-    position: absolute;
-    width: 100px;
-    height: 200px;
-    background-color: #0177ff;
-    top: 0;
-    left: -60px;
-} */
 
 #profileimg:hover {
     display: block!important;

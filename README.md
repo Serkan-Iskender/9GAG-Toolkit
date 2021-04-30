@@ -11,10 +11,20 @@ Offers advanced navigation options and improvements for the 9gag.com website.
  - Changes the font
  - Adds keys for fast navigation in the right area
  - Profile picture viewer
+ - Sound control button
 
 # Road Map
-
- - Sound control button
  - Light theme support
- - Ads show/hide
- - Right bar show/hide
+ - Ads show/hide option
+ - Right bar show/hide option
+
+# Changelog
+**0.4** - 30.04.2021
+- Added navigation buttons area sound control button
+- Small bug fixed
+
+**0.3** - 29.04.2021
+- Added profil picture viewer
+
+**0.2** - 28.04.2021
+- Small bug fixed

@@ -11,9 +11,15 @@ $('body').addClass('theme-dark');
 $('#sidebar').remove();
 
 $(function() {
-    $('body').append('<div id="profileimg"><div class="loader"></div></div>');
+    $('#list-view-2').append('<div id="navigate"><div class="sound"><span class="icon-volume mute"></span></div><div class="up">↑</div><div class="down">↓</div></div>'); //Add navigate buttons
+    $('body').append('<div id="profileimg"><div class="loader"></div></div>'); //Add profile picture view modal
+    $('body').addClass('scrollbar'); //Custom scrollbar
+
     scrollFunction();
-    $('.nav-wrap .menu').click();
+});
+
+$('body').on('click', '.btn-vote.left', function() {
+    postStaticticsFormat();
 });
 
 $(window).on('load', function() {
@@ -30,10 +36,14 @@ function scrollFunction() {
     $('video').removeAttr('width');
     $('video').removeAttr('style');
     $('video').prop('controls', true);
-
     $('.post-container > div > div:not(.post-container)').css('height', '100%');
     postStaticticsFormat();
 
+    if ($('#navigate .sound .icon-volume').hasClass('open')) {
+        $('video').prop('muted', false);
+    } else {
+        $('video').prop('muted', true);
+    }
 }
 
 function postStaticticsFormat() {
@@ -56,22 +66,15 @@ function postStaticticsFormat() {
     });
 }
 
-$('body').on('click', '.btn-vote.left', function() {
-    postStaticticsFormat();
-});
-
-$('body').addClass('scrollbar');
-
-$('#list-view-2').append('<div id="navigate"><div class="up">↑</div><div class="down">↓</div></div>')
-
 $('body').on('mousemove', function() {
     scrollFunction();
 })
 
 function alignActivePost(direction) {
     if ($('article.next').length > 0) {
-        var activePost = (direction == 'down') ? $('article.next').last().offset().top : $('article.next').first().offset().top;
-        $('html, body').animate({ scrollTop: (activePost - 100) }, 250);
+        var activePost = (direction == 'down') ? $('article.next').last() : $('article.next').first();
+        var activePostTop = activePost.offset().top;
+        $('html, body').animate({ scrollTop: (activePostTop - 100) }, 250);
     }
 }
 
@@ -122,6 +125,20 @@ $('#page').on('click', '#navigate .down', function() {
         nextPost != null ? nextPost.addClass('next') : '';
         alignActivePost('down');
     });
+});
+
+$('#page').on('click', '#navigate .sound', function() {
+    var soundIcon = $(this).find('.icon-volume');
+
+    if (soundIcon.hasClass('open')) {
+        soundIcon.removeClass('open');
+        soundIcon.addClass('mute');
+        $('video').prop('muted', true);
+    } else {
+        soundIcon.removeClass('mute');
+        soundIcon.addClass('open');
+        $('video').prop('muted', false);
+    }
 });
 
 // Profil picture big view
