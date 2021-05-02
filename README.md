@@ -5,7 +5,8 @@ Offers advanced navigation options and improvements for the 9gag.com website.
 # Features
 **This plugin with improvements for the 9GAG website:**
 
- - Sets the interface to dark theme and almost completely changes the look (dark theme for now only)
+ - It changes the interface drastically. It allows you to see the content in a wider, modern and simple interface.
+ - Sets the default interface to dark theme. If you wish, you can choose the light theme.
  - Hides ad spaces
  - Makes video controls visible
  - Changes the font
@@ -14,11 +15,15 @@ Offers advanced navigation options and improvements for the 9gag.com website.
  - Sound control button
 
 # Road Map
- - Light theme support
  - Ads show/hide option
  - Right bar show/hide option
 
 # Changelog
+
+**0.5** - 02.05.2021
+- Light theme support
+- Some minor bugs fixed
+
 **0.4** - 30.04.2021
 - Added navigation buttons area sound control button
 - Small bug fixed

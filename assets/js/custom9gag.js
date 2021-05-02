@@ -5,8 +5,16 @@ console.log('9GAG Tooltiket active');
 $('head').append('<link rel="preconnect" href="https://fonts.gstatic.com">');
 $('head').append('<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet"></link>');
 
-//Theme dark active
-$('body').addClass('theme-dark');
+//Theme control
+if (localStorage.getItem('customTheme') != 'light') {
+    $('body').addClass('theme-dark');
+    var appState = JSON.parse(localStorage.getItem('appState'));
+    appState['app']['darkMode'] = true;
+    localStorage.setItem('appState', JSON.stringify(appState));
+    $('.darkmode-toggle').addClass('active');
+}
+$('.darkmode-toggle').attr('onclick','localStorage.setItem("customTheme", $(this).hasClass("active") ? "dark" : "light")');
+
 
 $('#sidebar').remove();
 
@@ -39,11 +47,11 @@ function scrollFunction() {
     $('.post-container > div > div:not(.post-container)').css('height', '100%');
     postStaticticsFormat();
 
-    if ($('#navigate .sound .icon-volume').hasClass('open')) {
-        $('video').prop('muted', false);
-    } else {
-        $('video').prop('muted', true);
-    }
+    // if ($('#navigate .sound .icon-volume').hasClass('open')) {
+    //     $('video').prop('muted', false);
+    // } else {
+    //     $('video').prop('muted', true);
+    // }
 }
 
 function postStaticticsFormat() {
@@ -66,15 +74,20 @@ function postStaticticsFormat() {
     });
 }
 
-$('body').on('mousemove', function() {
-    scrollFunction();
-})
+$('body').on('mousemove', 'video', function() {
+    $(this).prop('controls', true);
+});
 
 function alignActivePost(direction) {
     if ($('article.next').length > 0) {
         var activePost = (direction == 'down') ? $('article.next').last() : $('article.next').first();
         var activePostTop = activePost.offset().top;
         $('html, body').animate({ scrollTop: (activePostTop - 100) }, 250);
+        if ($('#navigate .sound .icon-volume').hasClass('open')) {
+            activePost.find('video').prop('muted', false);
+        } else {
+            activePost.find('video').prop('muted', true);
+        }
     }
 }
 
