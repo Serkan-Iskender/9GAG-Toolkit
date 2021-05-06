@@ -19,6 +19,8 @@ Offers advanced navigation options and improvements for the 9gag.com website.
  - Right bar show/hide option
 
 # Changelog
+**0.6** 06.05.2021
+- Adapting to interface changes
 
 **0.5** - 02.05.2021
 - Light theme support
@@ -33,3 +35,6 @@ Offers advanced navigation options and improvements for the 9gag.com website.
 
 **0.2** - 28.04.2021
 - Small bug fixed
+
+# Open Source
+https://github.com/Serkan-Iskender/9GAG-Toolkit

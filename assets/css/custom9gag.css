@@ -200,6 +200,11 @@ section#list-view-2 .post-container div.badge-track {
     overflow: auto;
 }
 
+section#list-view-2 .post-container .post-view {
+    background: transparent!important;
+    height: auto!important;
+}
+
 video {
     width: auto!important;
     height: auto!important;
@@ -220,7 +225,7 @@ section#list-view-2 .post-container a video {
     display: none;
 }
 
-.post-afterbar-a.in-list-view {
+.post-afterbar-a {
     position: relative;
     left: 0;
     width: 100%!important;
@@ -231,11 +236,11 @@ section#list-view-2 .post-container a video {
     border-top: 1px solid var(--background-color);
 }
 
-.theme-dark .post-afterbar-a.in-list-view {
+.theme-dark .post-afterbar-a {
     border-top: none;
 }
 
-.post-afterbar-a.in-list-view>.btn-vote.left {
+.post-afterbar-a>.btn-vote.left {
     margin-right: 10px;
 }
 
@@ -474,6 +479,7 @@ body .btn-vote a {
 body .post-afterbar-a.in-post-top {
     border-radius: 3px 3px 0 0;
     padding: 10px!important;
+    box-sizing: content-box;
 }
 
 body.theme-dark .post-afterbar-a.in-post-top {
