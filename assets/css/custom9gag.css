@@ -349,6 +349,10 @@ body .btn-vote a {
     height: auto!important;
 }
 
+#sidebar {
+    display: none!important;
+}
+
 
 /* Left menu */
 
@@ -484,6 +488,10 @@ body .post-afterbar-a.in-post-top {
 
 body.theme-dark .post-afterbar-a.in-post-top {
     background-color: var(--menu-background)!important;
+}
+
+.post-container .post-view {
+    background-color: transparent!important;
 }
 
 .share {
