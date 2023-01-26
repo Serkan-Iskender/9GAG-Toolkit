@@ -19,6 +19,9 @@ Offers advanced navigation options and improvements for the 9gag.com website.
  - Right bar show/hide option
 
 # Changelog
+**0.6.2** - 26.01.2023
+- Adapting to interface changes
+
 **0.6.1** - 05.06.2021
 - Adapting to interface changes
 

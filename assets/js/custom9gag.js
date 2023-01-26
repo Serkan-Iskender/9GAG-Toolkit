@@ -8,9 +8,6 @@ $('head').append('<link href="https://fonts.googleapis.com/css2?family=Josefin+S
 //Theme control
 if (localStorage.getItem('customTheme') != 'light') {
     $('body').addClass('theme-dark');
-    var appState = JSON.parse(localStorage.getItem('appState'));
-    appState['app']['darkMode'] = true;
-    localStorage.setItem('appState', JSON.stringify(appState));
     $('.darkmode-toggle').addClass('active');
 }
 $('.darkmode-toggle').attr('onclick','localStorage.setItem("customTheme", $(this).hasClass("active") ? "dark" : "light")');
@@ -19,7 +16,7 @@ $('.darkmode-toggle').attr('onclick','localStorage.setItem("customTheme", $(this
 $('#sidebar').remove();
 
 $(function() {
-    $('#list-view-2').append('<div id="navigate"><div class="sound"><span class="icon-volume mute"></span></div><div class="up">↑</div><div class="down">↓</div></div>'); //Add navigate buttons
+    $('#page').append('<div id="navigate"><div class="sound"><span class="icon-volume mute"></span></div><div class="up">↑</div><div class="down">↓</div></div>'); //Add navigate buttons
     $('body').append('<div id="profileimg"><div class="loader"></div></div>'); //Add profile picture view modal
     $('body').addClass('scrollbar'); //Custom scrollbar
 
